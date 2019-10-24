@@ -44,9 +44,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _TranslatorState extends State<MyHomePage> {
-  String _inputtext = "";
+  TextEditingController myController = new TextEditingController();
 
-  void _translate() {
+  /*  @override
+  void initState() {
+    super.initState();
+
+  myController.addListener(_printLatestValue);
+  } */
+
+ /*  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the widget tree.
+    // This also removes the _printLatestValue listener.
+    myController.dispose();
+    super.dispose();
+  } */
+
+  _printLatestValue() {
+    print("Second text field: ${myController.text}");
+  }
+
+  _translate() {
     //TODO
   }
 
@@ -58,6 +77,7 @@ class _TranslatorState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextField(
+              controller: myController,
               decoration: InputDecoration(
                 //border: InputBorder.none,
                 hintText: 'Enter a term to translate'
@@ -65,7 +85,7 @@ class _TranslatorState extends State<MyHomePage> {
             ),
             const SizedBox(height: 30),
             RaisedButton(
-              onPressed: () {},
+              onPressed: _printLatestValue,
               child: const Text('Translate', style: TextStyle(fontSize: 20)),
             ),
           ],
