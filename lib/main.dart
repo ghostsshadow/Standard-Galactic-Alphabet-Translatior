@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.cyan,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Translate'),
     );
   }
 }
@@ -40,9 +40,40 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _TranslatorState createState() => _TranslatorState();
 }
 
+class _TranslatorState extends State<MyHomePage> {
+  String _inputtext = "";
+
+  void _translate() {
+    //TODO
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                //border: InputBorder.none,
+                hintText: 'Enter a term to translate'
+              ),
+            ),
+            const SizedBox(height: 30),
+            RaisedButton(
+              onPressed: () {},
+              child: const Text('Translate', style: TextStyle(fontSize: 20)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
