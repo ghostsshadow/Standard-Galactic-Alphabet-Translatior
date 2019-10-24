@@ -44,6 +44,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _TranslatorState extends State<MyHomePage> {
+
+  String _translation = '';
+
   TextEditingController myController = new TextEditingController();
 
   /*  @override
@@ -66,7 +69,9 @@ class _TranslatorState extends State<MyHomePage> {
   }
 
   _translate() {
-    //TODO
+    setState(() {
+      _translation = '${myController.text}';
+    });
   }
 
   @override
@@ -76,6 +81,10 @@ class _TranslatorState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(
+              _translation,
+              style: TextStyle(fontFamily: 'Minecraft', fontSize: 26),
+              ),
             TextField(
               controller: myController,
               decoration: InputDecoration(
@@ -85,7 +94,7 @@ class _TranslatorState extends State<MyHomePage> {
             ),
             const SizedBox(height: 30),
             RaisedButton(
-              onPressed: _printLatestValue,
+              onPressed: _translate,
               child: const Text('Translate', style: TextStyle(fontSize: 20)),
             ),
           ],
