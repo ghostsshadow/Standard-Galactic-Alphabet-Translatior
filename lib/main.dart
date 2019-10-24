@@ -49,20 +49,20 @@ class _TranslatorState extends State<MyHomePage> {
 
   TextEditingController myController = new TextEditingController();
 
-  /*  @override
+   @override
   void initState() {
     super.initState();
 
-  myController.addListener(_printLatestValue);
-  } */
+  myController.addListener(_translate);
+  }
 
- /*  @override
+  @override
   void dispose() {
     // Clean up the controller when the widget is removed from the widget tree.
     // This also removes the _printLatestValue listener.
     myController.dispose();
     super.dispose();
-  } */
+  }
 
   _printLatestValue() {
     print("Second text field: ${myController.text}");
@@ -86,17 +86,23 @@ class _TranslatorState extends State<MyHomePage> {
               style: TextStyle(fontFamily: 'Minecraft', fontSize: 26),
               ),
             TextField(
+              onEditingComplete: _printLatestValue,
+              maxLines: 3,
+              style: TextStyle(
+                fontSize: 28.0,
+                height: 2.0
+              ),
               controller: myController,
               decoration: InputDecoration(
-                //border: InputBorder.none,
+                border: OutlineInputBorder(),
                 hintText: 'Enter a term to translate'
               ),
             ),
             const SizedBox(height: 30),
-            RaisedButton(
+            /* RaisedButton(
               onPressed: _translate,
               child: const Text('Translate', style: TextStyle(fontSize: 20)),
-            ),
+            ), */
           ],
         ),
       ),
