@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'theme.dart';
 import 'package:share/share.dart';
 
 class Translator extends StatefulWidget {

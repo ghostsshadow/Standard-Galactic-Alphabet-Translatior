@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'theme.dart';
 import 'package:standart_galactic_alphabet_translator/GalacticView.dart';
 import 'package:standart_galactic_alphabet_translator/LatinView.dart';
 //import 'package:standart_galactic_alphabet_translator/routingContstants.dart';
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Minecraft Translator',
+      theme: myTheme,
       home: PageController(),
       
     );
@@ -27,7 +29,7 @@ class PageController extends StatefulWidget {
 
 class _PageControllerState extends State<PageController> {
 
-  List<Widget> pages=[LatinView(), GalacticView()];
+  List<Widget> pages=[LatinView(title: Text('Encode'),), GalacticView(title: Text('Decode'),)];
 
   @override
   Widget build(BuildContext context) {
