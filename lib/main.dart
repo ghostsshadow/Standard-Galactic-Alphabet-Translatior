@@ -13,8 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Minecraft Translator',
       home: PageController(),
-      /* onGenerateRoute: router.generateRoute,
-      initialRoute: LatinViewRoute, */
+      
     );
   }
 }

@@ -37,59 +37,74 @@ class _TranslatorState extends State<Translator> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Stack(
-              children: <Widget>[
-                TextField(
-                  maxLines: 3,
-                  style: widget.fontFam == 'Minecraft'
-                      ? TextStyle(fontSize: 28.0, height: 1.25)
-                      : TextStyle(
-                          fontFamily: 'Minecraft',
-                          fontSize: 28.0,
-                          height: 1.25),
-                  controller: myController,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Enter a term to translate'),
-                ),
-                Container(
-                  alignment: Alignment.topRight,
-                  child: IconButton(
-                    icon: Icon(Icons.content_paste),
-                    onPressed: () {},
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center, 
+        children: <Widget>[
+          Stack(
+            children: <Widget>[
+              TextField(
+                maxLines: 3,
+                style: widget.fontFam == 'Standard Galactic Alphabet'
+                    ? TextStyle(
+                        fontFamily: 'Minecraft',
+                        fontSize: 28.0,
+                        height: 1.25,
+                        color: Colors.white)
+                    : TextStyle(
+                        fontFamily: 'Standard Galactic Alphabet',
+                        color: Colors.white,
+                        fontSize: 28.0,
+                        height: 1.25),
+                controller: myController,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Enter a term to translate'),
+              ),
+              Container(
+                child: Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.content_paste,
+                    color: Colors.white,
                   ),
+                  onPressed: () {},
                 ),
-              ],
-            ),
-            Stack(
-              children: <Widget>[
-                Text(
-                  _translation,
-                  style: TextStyle(
-                      fontFamily: widget.fontFam, fontSize: 28, height: 1.25),
-                ),
-                Container(
-                  alignment: Alignment.topRight,
-                  child: IconButton(
-                    icon: Icon(Icons.content_copy),
-                    onPressed: _translation.isEmpty ? null : () {
-                      final RenderBox box = context.findRenderObject();
-                              Share.share(_translation,
-                                  sharePositionOrigin:
-                                      box.localToGlobal(Offset.zero) &
-                                          box.size);
-                    },
+              ),
+              ),
+            ],
+          ),
+          Stack(
+            children: <Widget>[
+              Text(
+                _translation,
+                style: TextStyle(
+                    fontFamily: widget.fontFam,
+                    fontSize: 28,
+                    height: 1.25,
+                    color: Colors.white),
+              ),
+              Container(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.content_copy,
+                    color: Colors.white,
                   ),
-                )
-              ],
-            ),
-          ],
-        ),
+                  onPressed: _translation.isEmpty
+                      ? null
+                      : () {
+                          final RenderBox box = context.findRenderObject();
+                          Share.share(_translation,
+                              sharePositionOrigin:
+                                  box.localToGlobal(Offset.zero) & box.size);
+                        },
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
