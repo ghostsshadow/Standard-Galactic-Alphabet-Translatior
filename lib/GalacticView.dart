@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:standart_galactic_alphabet_translator/keyboard.dart';
 //import 'theme.dart';
 //import 'package:standart_galactic_alphabet_translator/routingContstants.dart';
 import 'package:standart_galactic_alphabet_translator/translator.dart';
@@ -18,8 +19,18 @@ class GalacticView extends StatelessWidget {
         onPressed: (){
           Navigator.pushNamed(context, LatinViewRoute, arguments: 'passed in argument');
         },
-      ), */
-      body: Translator(fontFam: 'Latin',),
+      ),
+       */
+      body: Container(
+        child: Row(
+          children: <Widget>[
+            Translator(
+              fontFam: 'Latin',
+            ),
+            Keyboard(),
+          ],
+        ),
+      ),
     );
   }
 }
