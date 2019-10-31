@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:standart_galactic_alphabet_translator/keyboard.dart';
 //import 'theme.dart';
 //import 'package:standart_galactic_alphabet_translator/routingContstants.dart';
-import 'package:standart_galactic_alphabet_translator/translator.dart';
+//import 'package:standart_galactic_alphabet_translator/translator.dart';
 
 class GalacticView extends StatelessWidget {
   final String argument;
@@ -21,15 +21,8 @@ class GalacticView extends StatelessWidget {
         },
       ),
        */
-      body: Container(
-        child: Row(
-          children: <Widget>[
-            Translator(
-              fontFam: 'Latin',
-            ),
-            Keyboard(),
-          ],
-        ),
+      body: new Container(
+        child: Keyboard(),
       ),
     );
   }
